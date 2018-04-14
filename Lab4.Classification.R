@@ -2,4 +2,6 @@
 # Lab4. Classification
 ##########################
 
-# TEST K-MEANS
+# K-MEANS NOTES
+
+# KNN NOTES
