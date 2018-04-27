@@ -30,8 +30,27 @@ test
 
 ##################### DATA ANALYTIC ###################
 dim(mdata)
-mdata <- mdata[,1:32]
-str(mdata[,20:32])
+mdata <- mdata[,1:28]
+str(mdata[,20:28])
+str(mdata)
+head(mdata[,20:28])
 
-head(mdata)
+#### QUESTION? ####
+## PEAK HOURS EACH DAY ##
 
+library(ggplot2)
+
+ggplot(data=mdata,aes(x=`Arrival Time`,y=Bus)) +
+  geom_point()
+
+ggplot(data=mdata,aes(x=`Arrival Time`,y=Train)) +
+  geom_point()
+
+boxplot(mdata$`Arrival Time`~mdata$`Travel Mode - Mon`)
+
+test <- mdata %>% group_by(`Arrival Time`) %>% summarise(CountN =n())
+test
+
+ggplot(data=test,aes(x=`Arrival Time`,y=CountN)) +
+  geom_point()
+hist(test$CountN~test$`Arrival Time`)
