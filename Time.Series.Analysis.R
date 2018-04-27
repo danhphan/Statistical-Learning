@@ -49,3 +49,6 @@ frequency(tsm)
 library(tidyquant)  # Loads tidyverse, tidquant, financial pkgs, xts/zoo
 library(cranlogs)   # For inspecting package downloads over time
 
+# xts package for time series data
+library(zoo)
+library(xts)
