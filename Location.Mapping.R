@@ -70,7 +70,10 @@ HoustonMap +
     data = violent_crimes
   )
 
+dim(violent_crimes)
+head(violent_crimes)
 
+head(violent_crimes)
 houston <- get_map("houston", zoom = 14)
 HoustonMap <- ggmap(houston, extent = "device", legend = "topleft")
 
@@ -99,6 +102,7 @@ HoustonMap +
                  bins=5, geom = "polygon", date=violent_crimes) +
   scale_fill_gradient(low="black",high="red")  + 
   facet_wrap(~day)
+
 geocode("Macquarie university", output = "more")
 
 gc <- geocode("baylor university")
