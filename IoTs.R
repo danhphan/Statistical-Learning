@@ -3,32 +3,27 @@
 
 rm(list = ls())
 gc()
-
 # Load library and data sources
 library(readr)
 library(ggplot2)
+library(dplyr)
 
-mdata <- read_csv("D:/Drive/Persona/MIT Study/R Projects/Statistical Learning/data/MPID_data.csv")
+
 mpostcodes <- read_csv("D:/Drive/Persona/MIT Study/R Projects/Statistical Learning/data/MPID_Postcodes.csv")
+mdata <- read_csv("D:/Drive/Persona/MIT Study/R Projects/Statistical Learning/data/MPID_data.csv")
 
-
+# Explore data
+# Postcodes table
 dim(mpostcodes)
 mpostcodes <- mpostcodes[,1:6]
 str(mpostcodes)
-mpostcodes <- as.data.frame(mpostcodes)
-str(mpostcodes)
-
+class(mpostcodes)
 mpostcodes[which(mpostcodes$Area %in% "Ryde"),]
 
-library(dplyr)
 
-post_frequence <- mpostcodes %>% select(Pcode) %>% group_by(Pcode) %>% 
-  mutate(countP=n()) %>% arrange(desc(countP))
+# post_frequence <- mpostcodes %>% select(Pcode) %>% group_by(Pcode) %>% 
+#   mutate(countP=n()) %>% arrange(desc(countP))
 
-post_frequence
-
-test <- mpostcodes %>% group_by(Area) %>% mutate(countA =count(Pcode), spos <- sum(Pcode)) %>% arrange(desc(countA))
-test
 
 ##################### DATA ANALYTIC ###################
 dim(mdata)
