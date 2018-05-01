@@ -48,7 +48,7 @@ test$Fence <- NULL
 
 write.csv(data, submission.csv)
 
-
+# Do corellation checking
 
 
 
